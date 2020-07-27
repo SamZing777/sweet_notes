@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Home of Sweet Notes
+{% endblock %}
+
+
+{% block body %}
+	<h1 class="text-center">Sweet Notes</h1>
+
+	<div class="container">
+		<div class="row">
+		{% for note in notes %}
+			<div class="col col-sm col-md col-lg">
+				<div class="card">
+					<div class="card-header">
+						<h4>{{ note.title }}</h4>
+					</div>
+					<div class="card-body">
+						<p>By: <a href="#">{{ note.user }}</a></p>
+						<b>Original Author: {{ note.author }}</b>
+						<p>{{ note.body }} <i id="readMore" class="fa fa-arrow-circle-down"></i></p>
+					</div>
+					<div class="card-footer">
+						<small>Posted on: {{ note.timeStamp }}</small>
+					</div>
+				</div>
+			</div>
+		{% endfor %}
+		</div>
+	</div>
+{% endblock %}
